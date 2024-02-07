@@ -20,4 +20,4 @@ jobs:
         docker push asecredeye/pyflask:latest
 
     - name: Deploy to Kubernetes
-      run: kubectl apply -f kubernetes/deployment.yaml -f kubernetes/service.yaml
+      run: kubectl apply -f mainfest/deployment.yaml -f mainfest/service.yaml
