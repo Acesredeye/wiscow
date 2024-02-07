@@ -23,4 +23,4 @@ jobs:
         run: docker push acesredeye/wisecow:tag
 
       - name: Deploy to Kubernetes
-        run: kubectl apply -f mainfest/deployment.yaml -f mainfest/service.yaml -f mainfest/ingress.yaml
+        run: kubectl config view
