@@ -29,5 +29,5 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
-          sed -i 's/8080/4499/g' deployment.yaml
-          kubectl apply -f deployment.yaml
+          sed -i 's/8080/4499/g' mainfest/deployment.yaml
+          kubectl apply -f mainfest/deployment.yaml
