@@ -17,10 +17,10 @@ jobs:
 
 
       - name: Build Docker image
-        run: docker build -t your-docker-image:tag .
+        run: docker build -t acesredeye/wisecow:tag .
 
       - name: Push Docker image to Docker Hub
-        run: docker push your-docker-image:tag
+        run: docker push acesredeye/wisecow:tag
 
       - name: Deploy to Kubernetes
         run: kubectl apply -f mainfest/deployment.yaml -f mainfest/service.yaml -f mainfest/ingress.yaml
