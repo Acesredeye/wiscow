@@ -1,0 +1,23 @@
+name: Python application
+
+on:
+  push:
+   branches: [ master ]
+  pull_request:
+    branches: [ master ]
+      
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build & Push Image
+      run: |
+        echo "${{ secrets.Aces@redeye1 }}" | docker login -u "acesredeye" --password-stdin
+        docker image build -t acesredeye/pyflask:latest .
+        docker push asecredeye/pyflask:latest
+
+    - name: Deploy to Kubernetes
+      run: kubectl apply -f mainfest/deployment.yaml -f mainfest/service.yaml
