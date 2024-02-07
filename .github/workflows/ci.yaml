@@ -23,9 +23,11 @@ jobs:
         run: docker push acesredeye/wisecow:tag
 
       - name: Configure Kubernetes Credentials
-        run: |
-          mkdir -p ~/.kube
-          echo "$KUBE_CONFIG_DATA" | base64 -d > ~/.kube/config
+        uses: azure/k8s-set-context@v1
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
 
       - name: Deploy to Kubernetes
-        run: kubectl cluster-info
+        run: |
+          sed -i 's/8080/4499/g' deployment.yaml
+          kubectl apply -f deployment.yaml
