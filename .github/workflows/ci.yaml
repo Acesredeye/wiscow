@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Login to Docker Hub
-        run: echo ${{ secrets.Aces@redeye1 }} | docker login -u ${{ secrets.acesredeye }} --password-stdin
+        run: echo "${{ secrets.Aces@redeye1 }}" | docker login -u "acesredeye" --password-stdin
 
       - name: Build Docker image
         run: docker build -t your-docker-image:tag .
