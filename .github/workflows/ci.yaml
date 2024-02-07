@@ -22,5 +22,10 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: docker push acesredeye/wisecow:tag
 
+      - name: Configure Kubernetes Credentials
+        run: |
+          mkdir -p ~/.kube
+          echo "$KUBE_CONFIG_DATA" | base64 -d > ~/.kube/config
+
       - name: Deploy to Kubernetes
         run: kubectl cluster-info
