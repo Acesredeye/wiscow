@@ -2,3 +2,4 @@ flask
 flask-redis==0.3
 requests
 numpy
+cryptography
