@@ -16,4 +16,4 @@ spec:
       - name: wisecow
         image: acesredeye/wisecow:tag
         ports:
-        - containerPort: 80
+        - containerPort: 4499
