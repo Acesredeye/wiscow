@@ -18,3 +18,6 @@ jobs:
         echo "${{ secrets.Aces@redeye1 }}" | docker login -u "acesredeye" --password-stdin
         docker image build -t acesredeye/pyflask:latest .
         docker push asecredeye/pyflask:latest
+
+    - name: Deploy to Kubernetes
+      run: kubectl apply -f kubernetes/deployment.yaml -f kubernetes/service.yaml
